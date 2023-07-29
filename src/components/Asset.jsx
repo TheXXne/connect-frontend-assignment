@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-// export enum PricingOption {
-//     PAID = 0,
-//     FREE = 1,
-//     VIEW_ONLY = 2,
-// }
+const PricingOption = {
+    PAID: 0,
+    FREE: 1,
+    VIEW_ONLY: 2,
+}
 
 export const Asset = (props) => {
     const [assets, setAssets] = useState([])
@@ -22,12 +22,13 @@ export const Asset = (props) => {
     useEffect(() => {
       fetchAssetData()
     }, [])
-
+    
     const filteredAsset = assets.filter((el) => {
-        if (props.input === '') {
-            return el;
+        assets.filter((asset) => asset.pricingOption === props.input.option)
+        if (props.input.keyword === '') {
+            return el
         } else {
-            return el.creator.toLowerCase().includes(props.input) || el.title.toLowerCase().includes(props.input)
+            return el.creator.toLowerCase().includes(props.input.keyword) || el.title.toLowerCase().includes(props.input.keyword)
         }
     })
 
@@ -40,7 +41,9 @@ export const Asset = (props) => {
                         <div className="asset-info">
                             <h4>{asset.creator}</h4>
                             <h4>{asset.title}</h4>
-                            <span>{asset.price}</span>
+                            <span>{
+                                (asset.pricingOption === PricingOption.PAID) ? asset.price : (asset.pricingOption === 1) ? 'Free' : 'View Only'}
+                            </span>
                         </div>    
                     </div>
                 ))
