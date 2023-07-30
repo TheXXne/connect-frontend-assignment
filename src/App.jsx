@@ -18,28 +18,19 @@ function App() {
 
   return (
     <div className="main">
-      <h1>React Search</h1>
       <div className="search">
         <TextField
           id="outlined-basic"
           onChange={keywordHandler}
           variant="outlined"
           fullWidth
-          label="Search"
+          label="Find the items you're looking for"
         />
       </div>
       <div className="filterItem">
-        <ul>
-          <li>
-            <button onClick={() => {optionHandler(0)}}>Paid</button>
-          </li>
-          <li>
-            <button onClick={() => {optionHandler(1)}}>Free</button>
-          </li>
-          <li>
-            <button onClick={() => {optionHandler(2)}}>View Only</button>
-          </li>
-        </ul>
+        <input type="checkbox" onClick={() => {optionHandler(0)}}/>Paid
+        <input type="checkbox" onClick={() => {optionHandler(1)}}/>Free
+        <input type="checkbox" onClick={() => {optionHandler(2)}}/>View Only
       </div>
       <Asset input={{keyword, option}} />
     </div>
