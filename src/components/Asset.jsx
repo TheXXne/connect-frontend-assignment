@@ -7,6 +7,7 @@ const PricingOption = {
 }
 
 export const Asset = (props) => {
+    console.log("props.input.checkedOption :::", props.input.checkedOption)
     const [assets, setAssets] = useState([])
 
     const fetchAssetData = () => {
@@ -23,7 +24,7 @@ export const Asset = (props) => {
       fetchAssetData()
     }, [])
 
-    const optionFilterdAssets = assets.filter((el) => (el.pricingOption === props.input.option || props.input.option === ''))
+    const optionFilterdAssets = assets.filter((el) => (props.input.checkedOption.includes(el.pricingOption) || props.input.checkedOption.length === 0))
     
     const keywordFilterdAssets = optionFilterdAssets.filter((el) => {
         if (props.input.keyword === '') {
