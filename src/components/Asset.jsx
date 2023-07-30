@@ -10,21 +10,22 @@ export const Asset = (props) => {
     const [assets, setAssets] = useState([])
 
     const fetchAssetData = () => {
-      fetch("https://closet-recruiting-api.azurewebsites.net/api/data")
-        .then(response => {
-          return response.json()
+        fetch("https://closet-recruiting-api.azurewebsites.net/api/data")
+            .then(response => {
+                return response.json()
         })
-        .then(data => {
-          setAssets(data)
+            .then(data => {
+                setAssets(data)
         })
     }
   
     useEffect(() => {
       fetchAssetData()
     }, [])
+
+    const optionFilterdAssets = assets.filter((el) => (el.pricingOption === props.input.option || props.input.option === ''))
     
-    const filteredAsset = assets.filter((el) => {
-        assets.filter((asset) => asset.pricingOption === props.input.option)
+    const keywordFilterdAssets = optionFilterdAssets.filter((el) => {
         if (props.input.keyword === '') {
             return el
         } else {
@@ -35,7 +36,7 @@ export const Asset = (props) => {
     return (
         <div>
             {
-                filteredAsset.map((asset) => (
+                keywordFilterdAssets.map((asset) => (
                     <div className="asset-container" key={asset.id}>
                         <img src={asset.imagePath} alt="Asset" />
                         <div className="asset-info">
