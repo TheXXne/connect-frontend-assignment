@@ -3,17 +3,27 @@ import TextField from "@mui/material/TextField";
 import { Asset } from "./components/Asset";
 import "./App.css";
 
+const PricingOption = {
+  PAID: 0,
+  FREE: 1,
+  VIEW_ONLY: 2,
+}
+
 function App() {
   const [keyword, setKeyword] = useState("");
-  const [option, setOption] = useState("");
+  const [checkedOption, setCheckedOption] = useState([]);
 
   const keywordHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
     setKeyword(lowerCase);
   };
 
-  const optionHandler = (option) => {
-    setOption(option);
+  const checkedOptionHandler = (checked, id) => {
+    if (checked) {
+      setCheckedOption([...checkedOption, id]);
+    } else {
+      setCheckedOption(checkedOption.filter((el) => el !== id));
+    }
   };
 
   return (
@@ -28,11 +38,26 @@ function App() {
         />
       </div>
       <div className="filterItem">
-        <input type="checkbox" onClick={() => {optionHandler(0)}}/>Paid
-        <input type="checkbox" onClick={() => {optionHandler(1)}}/>Free
-        <input type="checkbox" onClick={() => {optionHandler(2)}}/>View Only
+        <input id={PricingOption.PAID} type="checkbox" 
+          onChange={(e)=>{
+            checkedOptionHandler(e.currentTarget.checked, PricingOption.PAID)
+          }}
+          checked={checkedOption.includes(PricingOption.PAID) ? true : false}
+        />Paid
+        <input id={PricingOption.FREE} type="checkbox" 
+          onChange={(e)=>{
+            checkedOptionHandler(e.currentTarget.checked, PricingOption.FREE)
+          }}
+          checked={checkedOption.includes(PricingOption.FREE) ? true : false}
+        />Free
+        <input id={PricingOption.VIEW_ONLY} type="checkbox" 
+          onChange={(e)=>{
+            checkedOptionHandler(e.currentTarget.checked, PricingOption.VIEW_ONLY)
+          }}
+          checked={checkedOption.includes(PricingOption.VIEW_ONLY) ? true : false}
+        />View Only
       </div>
-      <Asset input={{keyword, option}} />
+      <Asset input={{keyword, checkedOption}} />
     </div>
   );
 }
