@@ -35,16 +35,18 @@ export const Asset = (props) => {
     })
 
     return (
-        <div>
+        <div className="asset-container">
             {
                 keywordFilterdAssets.map((asset) => (
-                    <div className="asset-container" key={asset.id}>
+                    <div className="asset-card" key={asset.id}>
                         <img src={asset.imagePath} alt="Asset" />
                         <div className="asset-info">
-                            <h4>{asset.creator}</h4>
-                            <h4>{asset.title}</h4>
-                            <span>{
-                                (asset.pricingOption === PricingOption.PAID) ? asset.price : (asset.pricingOption === 1) ? 'Free' : 'View Only'}
+                            <div className="creator-title">
+                                <h4>{asset.creator}</h4>
+                                <h4>{asset.title}</h4>
+                            </div>
+                            <span className="asset-option">{
+                                (asset.pricingOption === PricingOption.PAID) ? '$'+asset.price : (asset.pricingOption === 1) ? 'FREE' : 'VIEW ONLY'}
                             </span>
                         </div>    
                     </div>
