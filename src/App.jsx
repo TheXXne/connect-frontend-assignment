@@ -26,6 +26,10 @@ function App() {
     }
   };
 
+  const optionResetHandler = () => {
+    setCheckedOption([]);
+  };
+
   return (
     <div className="App">
       <div className="asset-wrapper">
@@ -65,7 +69,7 @@ function App() {
               checked={checkedOption.includes(PricingOption.VIEW_ONLY) ? true : false}
             />
             <span>View Only</span>
-            <button className="reset-btn">Reset</button>
+            <button className="reset-btn" onClick={optionResetHandler}>Reset</button>
           </div>
         </div>
         <div>
