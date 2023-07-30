@@ -94,3 +94,21 @@ code {
 .asset-card img {
   border-radius: 15px;
 }
+
+@media (max-width: 1200px) {
+  .asset-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .asset-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .asset-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
