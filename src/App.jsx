@@ -27,37 +27,51 @@ function App() {
   };
 
   return (
-    <div className="main">
-      <div className="search">
-        <TextField
-          id="outlined-basic"
-          onChange={keywordHandler}
-          variant="outlined"
-          fullWidth
-          label="Find the items you're looking for"
-        />
+    <div className="App">
+      <div className="asset-wrapper">
+        <div className="search">
+          <TextField
+            className="search-text"
+            id="outlined-basic"
+            onChange={keywordHandler}
+            label="Find the items you're looking for"
+          />
+        </div>
+        <div className="filterItem">
+          <span className="pricing-option">Pricing Options</span>
+          <div>
+            <input id={PricingOption.PAID} type="checkbox" 
+              onChange={(e)=>{
+                checkedOptionHandler(e.currentTarget.checked, PricingOption.PAID)
+              }}
+              checked={checkedOption.includes(PricingOption.PAID) ? true : false}
+            />
+            <span>Paid</span> 
+          </div>
+          <div>
+            <input id={PricingOption.FREE} type="checkbox" 
+              onChange={(e)=>{
+                checkedOptionHandler(e.currentTarget.checked, PricingOption.FREE)
+              }}
+              checked={checkedOption.includes(PricingOption.FREE) ? true : false}
+            />
+            <span>Free</span> 
+          </div>
+          <div>
+            <input id={PricingOption.VIEW_ONLY} type="checkbox" 
+              onChange={(e)=>{
+                checkedOptionHandler(e.currentTarget.checked, PricingOption.VIEW_ONLY)
+              }}
+              checked={checkedOption.includes(PricingOption.VIEW_ONLY) ? true : false}
+            />
+            <span>View Only</span>
+            <button className="reset-btn">Reset</button>
+          </div>
+        </div>
+        <div>
+          <Asset input={{keyword, checkedOption}} />
+        </div>
       </div>
-      <div className="filterItem">
-        <input id={PricingOption.PAID} type="checkbox" 
-          onChange={(e)=>{
-            checkedOptionHandler(e.currentTarget.checked, PricingOption.PAID)
-          }}
-          checked={checkedOption.includes(PricingOption.PAID) ? true : false}
-        />Paid
-        <input id={PricingOption.FREE} type="checkbox" 
-          onChange={(e)=>{
-            checkedOptionHandler(e.currentTarget.checked, PricingOption.FREE)
-          }}
-          checked={checkedOption.includes(PricingOption.FREE) ? true : false}
-        />Free
-        <input id={PricingOption.VIEW_ONLY} type="checkbox" 
-          onChange={(e)=>{
-            checkedOptionHandler(e.currentTarget.checked, PricingOption.VIEW_ONLY)
-          }}
-          checked={checkedOption.includes(PricingOption.VIEW_ONLY) ? true : false}
-        />View Only
-      </div>
-      <Asset input={{keyword, checkedOption}} />
     </div>
   );
 }

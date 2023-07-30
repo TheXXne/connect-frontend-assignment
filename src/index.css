@@ -1,37 +1,96 @@
 body {
-  background-color: #22254b;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.app-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  background-color: #1A1A1F;
+}
+
+.search {
+  width: 100%;
+  background-color: rgb(32, 32, 37);
+  box-sizing: border-box;
+  transition: border 0.2s ease-in-out 0s;
+  border-radius: 10px;
+  border: 1px solid rgb(32, 32, 37);
+}
+
+.search-text {
+  align-self: center;
+  color: #202025;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.asset-card {
+  padding: 0px 12px;
+  /* padding-bottom: 40px; */
+}
+
+.asset-card img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
 }
 
 .asset-container {
-  width: 250px;
-  margin: 16px;
-  background-color: #373b69;
-  color: white;
-  border-radius: 5px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
-}
-
-.asset-container img {
-  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .asset-info {
   display: flex;
-  padding: 20px;
+  font-size: 12px;
+  font-family: 'AvenirNextLTPro',sans-serif;
+  color: #FFFFFF;
   justify-content: space-between;
+  /* padding-bottom: 40px; */
+}
+
+.asset-option {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.asset-wrapper {
+  color: #1A1A1F;
+  padding: 20px 40px;
+}
+
+.filterItem {
+  padding-left: 24px;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 70px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #FFFFFF;
+  background-color: rgb(18, 18, 21);
+  border-radius: 3px;
 }
 
-.asset-info h4 {
-  margin: 0;
+.pricing-option {
+  color: rgb(191, 191, 198);
+  font-size: 10px;
 }
 
-.asset-info span {
-  margin-left: 3px;
+.reset-btn {
+  float: right;
+}
+
+.asset-card img {
+  border-radius: 15px;
 }
