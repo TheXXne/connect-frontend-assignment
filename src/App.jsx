@@ -29,6 +29,7 @@ function App() {
 
   const optionResetHandler = () => {
     setCheckedOption([]);
+    setKeyword("");
   };
 
   return (
