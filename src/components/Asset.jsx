@@ -26,7 +26,7 @@ export const Asset = (props) => {
     }
     useEffect(() => {
         fetchAssetData()
-    },)
+    }, [])
    
     const handleScroll = () => {
         const scrollHeight = document.documentElement.scrollHeight;
