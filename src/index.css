@@ -25,16 +25,24 @@ code {
   border: 1px solid rgb(32, 32, 37);
 }
 
+.buffer {
+  text-align: -webkit-left;
+  font-size: 12px;
+  padding-left: 12px;
+  color: #ffffff;
+  height: 3rem;
+  margin-top: 25px;
+}
+
 .search-text {
   align-self: center;
-  color: #202025;
+  color: #ffffff;
   width: 100%;
   border-radius: 10px;
 }
 
 .asset-card {
   padding: 0px 12px;
-  /* padding-bottom: 40px; */
 }
 
 .asset-card img {
@@ -58,6 +66,10 @@ code {
   /* padding-bottom: 40px; */
 }
 
+.creator-title {
+  text-align: left;
+}
+
 .asset-option {
   font-size: 16px;
   color: #FFFFFF;
@@ -73,7 +85,7 @@ code {
   align-items: center;
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: 97%;
   min-height: 70px;
   margin-top: 16px;
   font-size: 14px;
@@ -82,13 +94,32 @@ code {
   border-radius: 3px;
 }
 
+.reset-div {
+  padding-left: 24px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  width: 97%;
+  min-height: 70px;
+  font-size: 14px;
+  border-top: 1px solid rgb(191, 191, 198);;
+  background-color: rgb(18, 18, 21);
+  border-radius: 3px;
+  flex-direction: row-reverse;
+}
+
+.filterItem div {
+  padding-left: 5px;
+}
+
 .pricing-option {
   color: rgb(191, 191, 198);
   font-size: 10px;
 }
 
 .reset-btn {
-  float: right;
+  margin-right: 24px;
+  margin-top: -70px;
 }
 
 .asset-card img {
