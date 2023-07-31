@@ -63,6 +63,7 @@ code {
   font-family: 'AvenirNextLTPro',sans-serif;
   color: #FFFFFF;
   justify-content: space-between;
+  /* padding-bottom: 40px; */
 }
 
 .creator-title {
@@ -101,7 +102,7 @@ code {
   width: 97%;
   min-height: 70px;
   font-size: 14px;
-  border-top: 1px solid rgb(191, 191, 198);
+  border-top: 1px solid rgb(191, 191, 198);;
   background-color: rgb(18, 18, 21);
   border-radius: 3px;
   flex-direction: row-reverse;
