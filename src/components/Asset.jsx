@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { assetsAtom, pageCountAtom, fetchingAtom } from "../recoil/assetAtom";
 
 const PricingOption = {
     PAID: 0,
@@ -7,9 +9,9 @@ const PricingOption = {
 }
 
 export const Asset = (props) => {
-    const [assets, setAssets] = useState([])
-    const [pageCount, setPageCount] = useState(1);
-    const [fetching, setFetching] = useState(false);
+    const [assets, setAssets] = useRecoilState(assetsAtom)
+    const [pageCount, setPageCount] = useRecoilState(pageCountAtom);
+    const [fetching, setFetching] = useRecoilState(fetchingAtom);
 
     const numToLoad = 12
    

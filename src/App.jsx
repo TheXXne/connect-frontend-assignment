@@ -1,6 +1,7 @@
-import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Asset } from "./components/Asset";
+import { useRecoilState } from "recoil";
+import { keywordAtom, checkedOptionAtom } from "./recoil/assetAtom";
 import "./App.css";
 
 const PricingOption = {
@@ -10,8 +11,8 @@ const PricingOption = {
 }
 
 function App() {
-  const [keyword, setKeyword] = useState("");
-  const [checkedOption, setCheckedOption] = useState([]);
+  const [keyword, setKeyword] = useRecoilState(keywordAtom);
+  const [checkedOption, setCheckedOption] = useRecoilState(checkedOptionAtom);
 
   const keywordHandler = (e) => {
     var lowerCase = e.target.value.toLowerCase();
